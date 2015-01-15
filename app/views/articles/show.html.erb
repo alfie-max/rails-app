@@ -1,0 +1,35 @@
+<%= @article.title %><br />
+<%= @article.content %><br />
+
+
+<% if @article.video.present? %>
+  <video id="example_video_1" class="video-js vjs-default-skin vjs-big-play-centered"
+    controls preload="auto" width="640" height="264"
+    data-setup='{"example_option":true}'>
+   <source src= <%= "http://localhost:3000/" + @article.video.url.to_s %> type='video/mp4'  />
+   <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+  </video>
+<% end %>
+
+
+<% if @article.user == current_user %>
+  <%= link_to "Edit", edit_article_path(@article), class: 'btn btn-primary' %>
+  <%= link_to "Delete", article_path(@article), method: :delete, class: 'btn btn-warning' %>
+<% end %>
+
+
+<% if current_user.voted_up_on? @article %>
+  <% if current_user.voted_up_on? @article %>
+    <%= link_to "Downvote", {:controller =>"vote", :action => "downvote", :id => @article.id}, :class => 'btn btn-info'%>
+  <% else %>
+    <%= link_to "Upvote", {:controller =>"vote", :action => "upvote", :id => @article.id}, :class => 'btn btn-success' %>
+  <% end %>
+<% else %>
+  <%= link_to "Upvote", {:controller =>"vote", :action => "upvote", :id => @article.id}, :class => 'btn btn-success' %>
+<% end %>
+
+
+<%= form_for(@comment, url: article_comments_path(@article.id)) do |f| %>
+    <%= f.text_area :comment %> <br />
+    <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+<% end %>

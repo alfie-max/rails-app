@@ -1,0 +1,10 @@
+A working Blog Application with :
+    Email Authentication
+    Twitter and Github Authentication
+    Pagination
+    Profile Pic Upload
+    Posting Articles
+    Follow, comment and upvote options
+    Video Player
+    Active Admin
+    Bootstrap
