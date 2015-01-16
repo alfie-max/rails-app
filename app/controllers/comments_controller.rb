@@ -3,10 +3,11 @@ class CommentsController < ApplicationController
     article = Article.find params[:article_id]
     comment = Comment.new comment_params
     comment.user = current_user
-    comment.save
-    article.comments << comment
-    article.save
-    flash[:notice] = "Comment Saved..."
+    if comment.save
+      article.comments << comment
+      article.save
+      flash[:notice] = "Comment Saved..."
+    end
     redirect_to article
   end
 

@@ -28,14 +28,17 @@
   <%= link_to "Upvote", {:controller =>"vote", :action => "upvote", :id => @article.id}, :class => 'btn btn-success' %>
 <% end %>
 
+
 <h3>Comments</h3>
 <% @comments.each do |comment| %>
     <%= comment.comment %>
   <br />
 <% end %>
+<%= will_paginate @comments, class: "pull-left" %><br /><br />
 
 
-<%= form_for(@comment, url: article_comments_path(@article.id)) do |f| %>
-    <%= f.text_area :comment, required: true %> <br />
-    <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+<%= simple_form_for(@comment, url: article_comments_path(@article.id)) do |f| %>
+    <%= f.input :comment, placeholder: "Comment..." %> <br />
+    <%= f.button :submit %>
 <% end %>
+

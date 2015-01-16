@@ -31,6 +31,8 @@ gem 'acts_as_commentable'
 gem 'acts_as_votable', '~> 0.10.0'
 gem "acts_as_follower"
 
+gem 'simple_form'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

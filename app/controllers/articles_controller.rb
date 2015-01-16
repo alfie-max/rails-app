@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
     def show
       @article = Article.find params[:id]
       @comment = @article.comments.new
-      @comments = @article.comments
+      @comments = @article.comments.paginate(page: params[:page], per_page: 3)
     end
 
     def new
