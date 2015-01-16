@@ -3,7 +3,6 @@
     <tr>
         <th style="text-align:center;">Id</th>
         <th style="text-align:center;">Title</th>
-        <th style="text-align:center;">Content</th>
         <th style="text-align:center;">Author</th>
     </tr>
   </thead>
@@ -11,8 +10,7 @@
     <% @articles.each_with_index do |article, index| %>
         <tr>
           <td style="text-align:center;"><%= index+1 %></td>
-          <td style="text-align:center;"><%= article.title %></td>
-          <td style="text-align:center;"><%= article.content %></td>
+          <td style="text-align:center;"><%= link_to article.title, article %></td>
           <td style="text-align:center;"><%= link_to article.user.name, user_path(article.user_id) %></td>
         </tr>
     <% end %>
