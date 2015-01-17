@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Hello, <%= @article.user.name %></h1>
+    <p>
+      A user has recently commented on your post.
+      <h4><%= @comment.comment %></h4>
+
+    </p>
+    <p>
+      To view the comment in site, just follow this link: <%= link_to @article.title, article_path(@article.id) %>
+    </p>
+    <p>Thanks for being with us and have a great day!</p>
+  </body>
+</html>
