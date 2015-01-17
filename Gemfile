@@ -36,10 +36,10 @@ gem 'simple_form'
 
 # Background Job Gems
 # gem 'delayed_job'
-gem 'delayed_job_active_record'
-gem 'daemons'
+# gem 'delayed_job_active_record'
+# gem 'daemons'
 # gem "resque", "~> 2.0.0.pre.1", github: "resque/resque"
-# gem 'sidekiq'
+gem 'sidekiq'
 
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

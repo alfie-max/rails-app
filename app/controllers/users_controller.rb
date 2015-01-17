@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :get_user, :get_articles, :only => [:follow, :unfollow, :show]
+  before_filter :get_user, :get_articles, only: [:follow, :unfollow, :show]
 
   def follow
     current_user.follow(@user)
