@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
       article.comments << comment
       article.save
       flash[:notice] = "Comment Saved..."
-      CommentMailer.mail_comment(article, comment).deliver_now
+      CommentMailer.delay.mail_comment(article, comment)
     end
     redirect_to article
   end

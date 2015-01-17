@@ -32,6 +32,9 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem "acts_as_follower"
 
 gem 'simple_form'
+gem 'delayed_job'
+gem 'delayed_job_active_record'
+gem 'daemons'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -46,7 +49,7 @@ gem 'simple_form'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-    gem 'sqlite3'
+    gem 'pg'
     gem 'byebug'
     gem 'web-console', '~> 2.0'
     gem 'spring'
