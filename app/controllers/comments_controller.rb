@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
       article.comments << comment
       article.save
       flash[:notice] = "Comment Saved..."
-      CommentMailer.delay.mail_comment(article, comment)
+      CommentMailer.delay(run_at: 3.minutes.from_now).mail_comment(article, comment)
     end
     redirect_to article
   end

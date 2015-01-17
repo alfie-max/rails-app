@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, dependent: :delete
   validates :content, :title, presence: true
 
   has_attached_file :video

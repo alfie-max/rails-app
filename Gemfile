@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'pg'
 
 gem 'twitter-bootstrap-rails'
 gem 'devise'
@@ -32,9 +33,14 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem "acts_as_follower"
 
 gem 'simple_form'
-gem 'delayed_job'
+
+# Background Job Gems
+# gem 'delayed_job'
 gem 'delayed_job_active_record'
 gem 'daemons'
+# gem "resque", "~> 2.0.0.pre.1", github: "resque/resque"
+# gem 'sidekiq'
+
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -49,13 +55,11 @@ gem 'daemons'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-    gem 'pg'
     gem 'byebug'
     gem 'web-console', '~> 2.0'
     gem 'spring'
 end
 
 group :production do
-    gem 'pg'
     gem 'rails_12factor', group: :production
 end
